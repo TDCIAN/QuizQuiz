@@ -19,25 +19,35 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 5, 50, 80),
-      body: Container(
-        margin: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 32,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const Text(
-              "퀴즈퀴즈",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                const Text(
+                  "퀴즈퀴즈",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                _questionWidget(),
+                SizedBox(
+                  height: 20,
+                ),
+                _answerList(),
+                SizedBox(
+                  height: 20,
+                ),
+                _nextButton(),
+              ],
             ),
-            _questionWidget(),
-            _answerList(),
-            _nextButton(),
-          ],
+          ),
         ),
       ),
     );
