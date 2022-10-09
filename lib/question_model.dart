@@ -13,9 +13,7 @@ class Answer {
 }
 
 List<Question> getQuestions() {
-  List<Question> list = [];
-  // Add questions and anwer here
-  list.add(
+  List<Question> list = [
     Question(
       'Who is the owner of Flutter?',
       [
@@ -25,9 +23,6 @@ List<Question> getQuestions() {
         Answer('Apple', false),
       ],
     ),
-  );
-
-  list.add(
     Question(
       'Who owns iPhone?',
       [
@@ -37,9 +32,6 @@ List<Question> getQuestions() {
         Answer('Nokia', false),
       ],
     ),
-  );
-
-  list.add(
     Question(
       'Youtub is _______ platform?',
       [
@@ -49,9 +41,6 @@ List<Question> getQuestions() {
         Answer('All of the above', true),
       ],
     ),
-  );
-
-  list.add(
     Question(
       'Flutter uses dart as a language?',
       [
@@ -59,7 +48,7 @@ List<Question> getQuestions() {
         Answer('False', false),
       ],
     ),
-  );
-
+  ];
+  list.shuffle();
   return list;
 }

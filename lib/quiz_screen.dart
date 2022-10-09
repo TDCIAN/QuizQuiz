@@ -28,7 +28,7 @@ class _QuizScreenState extends State<QuizScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const Text(
-              "Simple Quiz App",
+              "퀴즈퀴즈",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -49,7 +49,7 @@ class _QuizScreenState extends State<QuizScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          ('Question ${currentQuestionIndex + 1}/${questionList.length.toString()}'),
+          ('문제 ${currentQuestionIndex + 1} / ${questionList.length.toString()}'),
           style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
@@ -104,11 +104,12 @@ class _QuizScreenState extends State<QuizScreen> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: const StadiumBorder(),
-          primary: isSelected ? Colors.orangeAccent : Colors.white,
-          onPrimary: isSelected ? Colors.white : Colors.black,
+          backgroundColor: isSelected ? Colors.orangeAccent : Colors.white,
+          foregroundColor: isSelected ? Colors.white : Colors.black,
         ),
         onPressed: () {
           if (selectedAnswer == null) {
+            print("온프레스드 위에 ${selectedAnswer?.answerText}");
             if (answer.isCorrect) {
               score++;
             }
@@ -117,6 +118,8 @@ class _QuizScreenState extends State<QuizScreen> {
                 selectedAnswer = answer;
               },
             );
+          } else {
+            print("온프레스드 아래 ${selectedAnswer?.answerText}");
           }
         },
         child: Text(answer.answerText),
@@ -135,8 +138,8 @@ class _QuizScreenState extends State<QuizScreen> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: const StadiumBorder(),
-          primary: Colors.blueAccent,
-          onPrimary: Colors.white,
+          backgroundColor: Colors.blueAccent,
+          foregroundColor: Colors.white,
         ),
         onPressed: () {
           if (isLastQuestion) {
@@ -152,7 +155,7 @@ class _QuizScreenState extends State<QuizScreen> {
             });
           }
         },
-        child: Text(isLastQuestion ? "Submit" : "Next"),
+        child: Text(isLastQuestion ? "답안 제출" : "다음"),
       ),
     );
   }
@@ -163,16 +166,16 @@ class _QuizScreenState extends State<QuizScreen> {
       // pass if 60%
       isPassed = true;
     }
-    String title = isPassed ? "Passed" : "Failed";
+    String title = isPassed ? "정답" : "오답";
     return AlertDialog(
       title: Text(
-        title + " | Score is $score",
+        title + " | 획득점수: $score",
         style: TextStyle(
           color: isPassed ? Colors.green : Colors.redAccent,
         ),
       ),
       content: ElevatedButton(
-        child: const Text("Restart"),
+        child: const Text("다시 풀기"),
         onPressed: () {
           Navigator.pop(context);
           setState(() {
