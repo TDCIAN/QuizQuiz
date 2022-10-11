@@ -21,13 +21,16 @@ class _QuizScreenState extends State<QuizScreen> {
       backgroundColor: Color.fromARGB(255, 5, 50, 80),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(
+            vertical: 32.0,
+            horizontal: 16.0,
+          ),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const Text(
-                  "퀴즈퀴즈",
+                  "갓생퀴즈",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
