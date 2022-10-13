@@ -21,9 +21,10 @@ class _QuizScreenState extends State<QuizScreen> {
       backgroundColor: Color.fromARGB(255, 5, 50, 80),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 32.0,
-            horizontal: 16.0,
+          padding: const EdgeInsets.only(
+            top: 32,
+            left: 16.0,
+            right: 16.0,
           ),
           child: SingleChildScrollView(
             child: Column(
