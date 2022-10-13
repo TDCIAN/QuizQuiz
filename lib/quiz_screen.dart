@@ -88,7 +88,7 @@ class _QuizScreenState extends State<QuizScreen> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 18,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.normal,
             ),
           ),
         )
